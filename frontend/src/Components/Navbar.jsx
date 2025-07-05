@@ -83,10 +83,10 @@ function Navbar() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className='md:hidden px-6 pb-4 flex flex-col gap-4 bg-white shadow-md'>
-          <a href="#" className='hover:text-[#754F23] text-lg'>Shop</a>
-          <a href="#" className='hover:text-[#754F23] text-lg'>Men</a>
-          <a href="#" className='hover:text-[#754F23] text-lg'>Women</a>
-          <a href="#" className='hover:text-[#754F23] text-lg'>Kids</a>
+          <Link to={"/"}><a href="#" className='hover:text-[#754F23] text-lg'>Shop</a></Link>
+          <Link to={"/men"}><a href="#" className='hover:text-[#754F23] text-lg'>Men</a></Link>
+          <Link to={"/women"}><a href="#" className='hover:text-[#754F23] text-lg'>Women</a></Link>
+          <Link to={"/kids"}><a href="#" className='hover:text-[#754F23] text-lg'>Kids</a></Link>
           <div className='flex gap-2 pt-2'>
             <Link to={"/login"} className='bg-[#754F23] text-white py-2 px-4 rounded-xl hover:bg-[#bc9466] duration-300 font-bold'>
               Login
