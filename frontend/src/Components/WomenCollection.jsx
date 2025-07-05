@@ -2,11 +2,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Navbar from './Navbar';
-import womenBanner from "../assets/banner_women.png"
+import womenBanner from "../assets/banner_women.png";
 import { Link } from 'react-router-dom';
 import Footer from './Footer';
 import { BACKEND_URL } from '../../utils/utils';
-
 
 function Women() {
   const [womenCloths, setWomenCloths] = useState([]);
@@ -30,38 +29,44 @@ function Women() {
   return (
     <div>
       <Navbar />
-      <img src={womenBanner} alt="" className='px-10' />
-      <div className='pt-20 pl-20 pr-20 pb-10'>
-        <h1 className='font-extrabold text-5xl'>Women's Collection</h1>
-        <hr className='w-[25vw] mt-2' />
-        <p className='mt-5'>Have a look at Women's collection!</p>
-      </div>
-      <div className='flex pr-20 pl-20 justify-between'>
-        {
-          womenCloths.map((cloth) => (
-            <div className='border border-[#94642d] rounded-lg p-5 w-80 hover:scale-105 duration-300 cursor-pointer hover:shadow-amber-600 hover:shadow-2xl' key={cloth._id}>
-              <div>
-                <img className='rounded-lg w-72' src={cloth?.image?.url} alt="" />
-                <div>
-                  <h1 className='font-bold text-lg mt-2'>{cloth.title}</h1>
-                  <div className='flex justify-between mt-1'>
-                    <p>{cloth.description}</p>
-                    <h1>${cloth.price}</h1>
-                  </div>
-                  <div className='flex justify-between'>
-                    <Link to={`/productdisplay/${cloth._id}`} className='bg-[#94642d] py-2 px-4 rounded-xl mt-3 cursor-pointer hover:bg-amber-700 text-white'>
-                      View
-                    </Link>
+      <img src={womenBanner} alt="" className="px-10 w-full object-cover" />
 
-                    <h1 className='font-bold mt-3 text-green-500'>25% off</h1>
-                  </div>
+      <div className="pt-10 px-5 md:px-20 pb-10">
+        <h1 className="font-extrabold text-3xl md:text-5xl">Women's Collection</h1>
+        <hr className="w-40 md:w-[25vw] mt-2" />
+        <p className="mt-3 md:mt-5 text-sm md:text-base">Have a look at Women's collection!</p>
+      </div>
+
+      <div className="px-5 md:px-20 pb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 place-items-center">
+          {womenCloths.map((cloth) => (
+            <div
+              key={cloth._id}
+              className="border border-[#94642d] rounded-lg p-5 w-full max-w-xs hover:scale-105 duration-300 cursor-pointer hover:shadow-amber-600 hover:shadow-2xl"
+            >
+              <img className="rounded-lg w-full" src={cloth?.image?.url} alt="" />
+              <div>
+                <h1 className="font-bold text-lg mt-2">{cloth.title}</h1>
+                <div className="flex justify-between mt-1 text-sm">
+                  <p className="w-2/3 truncate">{cloth.description}</p>
+                  <h1 className="font-semibold">${cloth.price}</h1>
+                </div>
+                <div className="flex justify-between items-center">
+                  <Link
+                    to={`/productdisplay/${cloth._id}`}
+                    className="bg-[#94642d] py-2 px-4 rounded-xl mt-3 cursor-pointer hover:bg-amber-700 text-white text-sm"
+                  >
+                    View
+                  </Link>
+                  <h1 className="font-bold mt-3 text-green-500 text-sm">25% off</h1>
                 </div>
               </div>
             </div>
-          ))
-        }
+          ))}
+        </div>
       </div>
-      <Footer/>
+
+      <Footer />
     </div>
   );
 }
