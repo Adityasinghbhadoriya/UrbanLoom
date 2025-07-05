@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+/* index.css */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('../public/fonts/CormorantGaramond-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* index.css */
+body {
+  font-family: 'Cormorant Garamond', serif;
+  background-color: #F0EADC;
+}
